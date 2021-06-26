@@ -22,12 +22,6 @@ class Query {
   Query({required this.pages});
 
   Query.fromJson(Map<String, dynamic> json) {
-    // if (json['redirects'] != null) {
-    //   redirects = [];
-    //   json['redirects'].forEach((v) {
-    //     redirects.add(new Redirects.fromJson(v));
-    //   });
-    // }
     if (json['pages'] != null) {
       pages = [];
       json['pages'].forEach((v) {
@@ -39,35 +33,11 @@ class Query {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
 
-    // data['redirects'] = this.redirects.map((v) => v.toJson()).toList();
-
     data['pages'] = this.pages.map((v) => v.toJson()).toList();
 
     return data;
   }
 }
-
-// class Redirects {
-//   late int index;
-//   late String from;
-//   late String to;
-
-//   Redirects({required this.index, required this.from, required this.to});
-
-//   Redirects.fromJson(Map<String, dynamic> json) {
-//     index = json['index'];
-//     from = json['from'];
-//     to = json['to'];
-//   }
-
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     data['index'] = this.index;
-//     data['from'] = this.from;
-//     data['to'] = this.to;
-//     return data;
-//   }
-// }
 
 class Pages {
   late int pageid;
@@ -105,12 +75,11 @@ class Pages {
     data['ns'] = this.ns;
     data['title'] = this.title;
     data['index'] = this.index;
-    if (this.thumbnail != null) {
-      data['thumbnail'] = this.thumbnail.toJson();
-    }
-    if (this.terms != null) {
-      data['terms'] = this.terms.toJson();
-    }
+
+    data['thumbnail'] = this.thumbnail.toJson();
+
+    data['terms'] = this.terms.toJson();
+
     return data;
   }
 }

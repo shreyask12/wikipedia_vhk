@@ -51,11 +51,5 @@ class WikiLinksCubit extends Cubit<WikiLinksState> with HydratedMixin {
     if (state is WikiLinksLoaded) {
       return state.toMap();
     }
-    // else {
-    //   if (state is HomeScreenCubitInitial) {
-    //     listOfTemplates();
-    //   } else if (state is WikiLinksError) {}
-    //   return null;
-    // }
   }
 }
